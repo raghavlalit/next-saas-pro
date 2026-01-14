@@ -4,11 +4,9 @@ import Stripe from 'stripe';
 import { prisma } from '@/lib/db';
 import { sendPaymentReceiptEmail } from '@/lib/email';
 
-export const dynamic = 'force-dynamic';
+import { stripe } from '@/lib/stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: '2025-01-27-preview' as any,
-});
+export const dynamic = 'force-dynamic';
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
