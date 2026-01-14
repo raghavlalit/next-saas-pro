@@ -20,7 +20,6 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     if (isClient && session?.user?.id) {
         // Fetch Client Data
         const client = await prisma.client.findFirst({
-            // @ts-expect-error: userId exists in schema but types might be stale
             where: { userId: session.user.id }
         });
 
