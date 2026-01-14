@@ -5,14 +5,14 @@ import { useRouter } from 'next/navigation';
 import { Shield, Save, X, Check } from 'lucide-react';
 import { groupPermissions } from '@/lib/permissions';
 
-export function RoleForm({ initialData, permissions }: { initialData?: any, permissions: any[] }) {
+export function RoleForm({ initialData, permissions }: { initialData?: { id: string, name: string, code: string, description: string | null, permissions: { permissionId: string }[] }, permissions: { id: string, code: string }[] }) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: initialData?.name || '',
         code: initialData?.code || '',
         description: initialData?.description || '',
-        permissionIds: initialData?.permissions?.map((p: any) => p.permissionId) || []
+        permissionIds: initialData?.permissions?.map((p: { permissionId: string }) => p.permissionId) || []
     });
 
     const groupedPermissions = groupPermissions(permissions.map(p => p.code));
@@ -26,19 +26,19 @@ export function RoleForm({ initialData, permissions }: { initialData?: any, perm
         setFormData(prev => ({
             ...prev,
             permissionIds: prev.permissionIds.includes(permissionId)
-                ? prev.permissionIds.filter(id => id !== permissionId)
+                ? prev.permissionIds.filter((id: string) => id !== permissionId)
                 : [...prev.permissionIds, permissionId]
         }));
     };
 
     const handleModuleToggle = (module: string, codes: string[]) => {
         const modulePermissionIds = codes.map(code => permissionMap[code]);
-        const allSelected = modulePermissionIds.every(id => formData.permissionIds.includes(id));
+        const allSelected = modulePermissionIds.every((id: string) => formData.permissionIds.includes(id));
 
         if (allSelected) {
             setFormData(prev => ({
                 ...prev,
-                permissionIds: prev.permissionIds.filter(id => !modulePermissionIds.includes(id))
+                permissionIds: prev.permissionIds.filter((id: string) => !modulePermissionIds.includes(id))
             }));
         } else {
             setFormData(prev => ({

@@ -1,7 +1,8 @@
 import { auth } from "@/lib/auth"
 import { prisma } from "@/lib/db"
 import { redirect } from "next/navigation";
-import { createCheckoutSession, createCustomerPortal } from "@/lib/stripe";
+import { createCustomerPortal } from "@/lib/stripe";
+// import { createCheckoutSession } from "@/lib/stripe";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 
 export default async function BillingPage() {
@@ -19,24 +20,25 @@ export default async function BillingPage() {
         redirect("/login");
     }
 
+    // eslint-disable-next-line react-hooks/purity
     const isPro = user.stripePriceId && user.stripeCurrentPeriodEnd && new Date(user.stripeCurrentPeriodEnd).getTime() > Date.now();
 
-    async function handleUpgrade() {
-        "use server";
-        // In a real app, you would create a customer if not exists, but for simplicity we assume logic handles it or we create it here.
-        // For this starter, we'll just create a checkout session.
-        // NOTE: You need to create a product in Stripe and get the Price ID.
-        // We will use a dummy Price ID or env var.
-        const priceId = process.env.STRIPE_PRICE_ID || "price_dummy";
-
-        // We need a customer ID. If user doesn't have one, we should create one.
-        // For now, let's assume we create one or pass email to checkout to create one.
-        // Ideally, we should create a customer in Stripe when user registers or here.
-
-        // Simplified:
-        // const stripeSession = await createCheckoutSession(priceId, user.stripeCustomerId!);
-        // redirect(stripeSession.url!);
-    }
+    // async function handleUpgrade() {
+    //     "use server";
+    //     // In a real app, you would create a customer if not exists, but for simplicity we assume logic handles it or we create it here.
+    //     // For this starter, we'll just create a checkout session.
+    //     // NOTE: You need to create a product in Stripe and get the Price ID.
+    //     // We will use a dummy Price ID or env var.
+    //     // const priceId = process.env.STRIPE_PRICE_ID || "price_dummy";
+    //
+    //     // We need a customer ID. If user doesn't have one, we should create one.
+    //     // For now, let's assume we create one or pass email to checkout to create one.
+    //     // Ideally, we should create a customer in Stripe when user registers or here.
+    //
+    //     // Simplified:
+    //     // const stripeSession = await createCheckoutSession(priceId, user.stripeCustomerId!);
+    //     // redirect(stripeSession.url!);
+    // }
 
     async function handlePortal() {
         "use server";

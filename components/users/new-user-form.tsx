@@ -8,6 +8,8 @@ import { CustomPhoneInput } from "@/components/ui/phone-input"
 import { Country } from "react-phone-number-input"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { useTransition } from "react"
+import { SubmitButton } from "@/components/ui/submit-button"
 
 export function NewUserForm({ roles }: { roles: any[] }) {
     const [phone, setPhone] = useState("")
@@ -65,7 +67,7 @@ export function NewUserForm({ roles }: { roles: any[] }) {
                 <PasswordInput
                     name="password"
                     required
-                    showStrengthMeter
+                    showStrength
                 />
             </div>
             <div>

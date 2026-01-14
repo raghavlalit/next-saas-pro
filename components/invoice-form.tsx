@@ -1,11 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createInvoice } from '@/app/actions';
 import { Plus, Trash } from 'lucide-react';
 
 export function InvoiceForm({ clients }: { clients: any[] }) {
     const [items, setItems] = useState([{ description: '', quantity: 1, unitPrice: 0 }]);
+    const [issuedDate, setIssuedDate] = useState("");
+    const [dueDate, setDueDate] = useState("");
+
+    // Initialize dates on client only to avoid hydration mismatch
+    useEffect(() => {
+        setTimeout(() => {
+            setIssuedDate(new Date().toISOString().split('T')[0]);
+            setDueDate(new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+        }, 0);
+    }, []);
 
     const addItem = () => {
         setItems([...items, { description: '', quantity: 1, unitPrice: 0 }]);
@@ -55,7 +65,8 @@ export function InvoiceForm({ clients }: { clients: any[] }) {
                         type="date"
                         name="issuedDate"
                         required
-                        defaultValue={new Date().toISOString().split('T')[0]}
+                        value={issuedDate}
+                        onChange={(e) => setIssuedDate(e.target.value)}
                         className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
                     />
                 </div>
@@ -65,7 +76,8 @@ export function InvoiceForm({ clients }: { clients: any[] }) {
                         type="date"
                         name="dueDate"
                         required
-                        defaultValue={new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
+                        value={dueDate}
+                        onChange={(e) => setDueDate(e.target.value)}
                         className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
                     />
                 </div>
