@@ -36,7 +36,11 @@ export async function createUser(formData: FormData) {
         hashedPassword = await bcrypt.hash(randomPassword, 10);
     }
 
-    let imageUrl = validated.image;
+    let imageUrl: string | undefined | null = null;
+    if (typeof validated.image === 'string') {
+        imageUrl = validated.image;
+    }
+
     const imageFile = formData.get('image') as File;
     if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
         imageUrl = await uploadFile(imageFile);
@@ -108,7 +112,7 @@ export async function updateUser(id: string, formData: FormData) {
     const imageFile = formData.get('image') as File;
     if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
         updateData.image = await uploadFile(imageFile);
-    } else if (validated.image) {
+    } else if (typeof validated.image === 'string') {
         updateData.image = validated.image;
     }
 
@@ -155,7 +159,11 @@ export async function createClient(formData: FormData) {
     const data = Object.fromEntries(formData.entries())
     const validated = ClientSchema.parse(data)
 
-    let imageUrl = typeof validated.companyLogo === 'string' ? validated.companyLogo : undefined;
+    let imageUrl: string | undefined | null = null;
+    if (typeof validated.companyLogo === 'string') {
+        imageUrl = validated.companyLogo;
+    }
+
     const imageFile = formData.get('companyLogo') as File;
     if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
         imageUrl = await uploadFile(imageFile);
@@ -216,7 +224,7 @@ export async function updateClient(id: string, formData: FormData) {
     const imageFile = formData.get('companyLogo') as File;
     if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
         updateData.companyLogo = await uploadFile(imageFile);
-    } else if (validated.companyLogo) {
+    } else if (typeof validated.companyLogo === 'string') {
         updateData.companyLogo = validated.companyLogo;
     }
 
