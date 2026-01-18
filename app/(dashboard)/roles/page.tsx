@@ -8,6 +8,8 @@ import { redirect } from "next/navigation"
 
 import { PaginationControl } from "@/components/ui/pagination-control"
 
+export const dynamic = 'force-dynamic';
+
 export default async function RolesPage(props: {
     searchParams: Promise<{ page?: string }>
 }) {

@@ -8,6 +8,8 @@ import { InvoiceStatusSelect } from "@/components/invoices/invoice-status-select
 
 const ITEMS_PER_PAGE = 10;
 
+export const dynamic = 'force-dynamic';
+
 export default async function InvoicesPage(props: {
     searchParams: Promise<{ page?: string }>
 }) {

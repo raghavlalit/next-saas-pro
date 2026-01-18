@@ -5,6 +5,8 @@ import { createCustomerPortal } from "@/lib/stripe";
 // import { createCheckoutSession } from "@/lib/stripe";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 
+export const dynamic = 'force-dynamic';
+
 export default async function BillingPage() {
     const session = await auth();
 

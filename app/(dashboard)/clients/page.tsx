@@ -8,6 +8,8 @@ import { PaginationControl } from "@/components/ui/pagination-control"
 
 const ITEMS_PER_PAGE = 10;
 
+export const dynamic = 'force-dynamic';
+
 export default async function ClientsPage(props: {
     searchParams: Promise<{ page?: string }>
 }) {

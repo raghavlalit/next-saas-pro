@@ -2,6 +2,8 @@ import { Breadcrumb } from "@/components/ui/breadcrumb"
 import { prisma } from "@/lib/db"
 import { NewUserForm } from "@/components/users/new-user-form"
 
+export const dynamic = 'force-dynamic';
+
 export default async function NewUserPage() {
     const roles = await prisma.role.findMany({
         orderBy: { name: 'asc' }

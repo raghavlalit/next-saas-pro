@@ -4,6 +4,8 @@ import { ClientDashboard } from "@/components/client-dashboard"
 import { AdminDashboard } from "@/components/admin-dashboard"
 import { DateRangePicker } from "@/components/date-range-picker"
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ from?: string; to?: string }> }) {
     const session = await auth();
     const isClient = session?.user?.role === 'client';

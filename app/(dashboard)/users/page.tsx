@@ -9,6 +9,8 @@ import { Prisma } from "@prisma/client"
 
 const ITEMS_PER_PAGE = 10;
 
+export const dynamic = 'force-dynamic';
+
 export default async function UsersPage(props: {
     searchParams: Promise<{ search?: string; role?: string; page?: string; name?: string; email?: string }>
 }) {

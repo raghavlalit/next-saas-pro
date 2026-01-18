@@ -7,6 +7,8 @@ import { Breadcrumb } from "@/components/ui/breadcrumb"
 import { ChangePasswordForm } from "@/components/settings/change-password-form"
 import { ProfileForm } from "@/components/settings/profile-form"
 
+export const dynamic = 'force-dynamic';
+
 export default async function SettingsPage() {
     const session = await auth();
     const userEmail = session?.user?.email;

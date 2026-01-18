@@ -9,6 +9,8 @@ import { DeletePermissionButton } from "@/components/permissions/delete-permissi
 
 import { PaginationControl } from "@/components/ui/pagination-control"
 
+export const dynamic = 'force-dynamic';
+
 export default async function PermissionsPage(props: {
     searchParams: Promise<{ page?: string }>
 }) {
