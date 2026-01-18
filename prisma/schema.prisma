@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("mysql://root:ppmDEoWsMfzhDfSIHYRizCfJNUowTcCN@mysql.railway.internal:3306/railway")
+  url      = "mysql://root:ppmDEoWsMfzhDfSIHYRizCfJNUowTcCN@mysql.railway.internal:3306/railway"
 }
 
 enum UserStatus {
