@@ -1,92 +1,62 @@
 # NextSaaS Pro
 
-NextSaaS Pro is a production-ready SaaS starter kit built with Next.js 14+, Tailwind CSS, Prisma, and Stripe.
+![NextSaaS Pro](https://placehold.co/600x200?text=NextSaaS+Pro)
 
-## Features
+**NextSaaS Pro** is a premium, production-ready SaaS starter kit built with **Next.js 14+**, **Tailwind CSS**, **Prisma**, and **Stripe**. It includes everything you need to launch a modern SaaS application quickly.
+
+## 🚀 Features
 
 - **Authentication**: Secure login/register with NextAuth.js (Credentials).
-- **RBAC**: Role-Based Access Control (Super Admin, Admin, User).
-- **Billing**: Stripe subscription integration (Checkout & Customer Portal).
-- **Dashboard**: Responsive dashboard with charts and data tables.
-- **Settings**: Profile management and account deletion.
-- **UI/UX**: Dark/Light mode, Tailwind CSS, and Shadcn UI components.
+- **RBAC**: Robust Role-Based Access Control (Super Admin, Admin, User).
+- **Billing**: Complete Stripe subscription integration (Checkout & Customer Portal).
+- **Dashboard**: Beautiful, responsive dashboard with analytics charts and data tables.
+- **Settings**: Comprehensive profile management and account deletion flows.
+- **UI/UX**: Modern design with Dark/Light mode, Tailwind CSS, and Shadcn UI components.
 - **Database**: PostgreSQL with Prisma ORM.
 
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Framework**: Next.js 14+ (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **ORM**: Prisma
-- **Auth**: NextAuth.js (Auth.js)
+- **Auth**: NextAuth.js (v5)
 - **Payments**: Stripe
 - **State**: Zustand
 - **Forms**: React Hook Form + Zod
 
-## Getting Started
+## 📖 Documentation
 
-### Prerequisites
+For detailed installation and configuration instructions, please read the [DOCUMENTATION.md](./DOCUMENTATION.md) file.
 
-- Node.js 18+
-- MySQL (or use a local instance)
-- Stripe Account
+## ⚡ Quick Start
 
-### Installation
+1.  **Clone the repo**:
 
-1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/next-saas-starter.git
+    ```
 
-   ```bash
-   git clone https://github.com/yourusername/next-saas-starter.git
-   cd next-saas-starter
-   ```
+2.  **Install dependencies**:
 
-2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-   ```bash
-   npm install
-   ```
+3.  **Setup Environment**:
+    Copy `.env.example` to `.env` and fill in your credentials.
 
-3. Set up environment variables:
-   Copy `.env.example` to `.env` and fill in the values.
+4.  **Run Database Migrations**:
 
-   ```bash
-   cp env.example .env
-   ```
+    ```bash
+    npx prisma db push
+    ```
 
-4. Set up the database:
+5.  **Start Dev Server**:
+    ```bash
+    npm run dev
+    ```
 
-   ```bash
-   npx prisma migrate dev
-   npx prisma db seed
-   ```
+## 📄 License
 
-5. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-## Environment Variables
-
-```env
-DATABASE_URL="mysql://root:root@localhost:3306/next_saas_pro"
-AUTH_SECRET="secret"
-STRIPE_SECRET_KEY="sk_test_..."
-STRIPE_WEBHOOK_SECRET="whsec_..."
-NEXT_PUBLIC_APP_URL="http://localhost:3000"
-```
-
-## Folder Structure
-
-```
-app/
-├── (auth)/         # Authentication pages
-├── (dashboard)/    # Dashboard pages
-├── api/            # API routes
-components/         # Reusable components
-lib/                # Utilities and configurations
-prisma/             # Database schema and seed script
-```
-
-## License
-
-MIT
+MIT © [Your Name/Company]

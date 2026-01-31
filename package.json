@@ -1,12 +1,25 @@
 {
-  "name": "next-saas-starter",
-  "version": "0.1.0",
+  "name": "next-saas-pro",
+  "version": "1.0.0",
+  "description": "A premium SaaS starter kit built with Next.js, Prisma, Stripe, and Tailwind CSS.",
+  "author": "NextSaaS Pro Team",
+  "keywords": [
+    "nextjs",
+    "saas",
+    "starter",
+    "stripe",
+    "prisma",
+    "tailwindcss",
+    "react"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.1",
@@ -19,6 +32,7 @@
     "@stripe/react-stripe-js": "^5.4.1",
     "@stripe/stripe-js": "^8.6.1",
     "@types/bcryptjs": "^2.4.6",
+    "@vercel/analytics": "^1.6.1",
     "apexcharts": "^5.3.6",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",

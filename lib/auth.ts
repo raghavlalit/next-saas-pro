@@ -6,12 +6,25 @@ import { z } from "zod"
 import bcrypt from "bcryptjs"
 import { authConfig } from "./auth.config"
 
+/**
+ * NextAuth.js Configuration.
+ * 
+ * This file handles authentication setup, including:
+ * - Prisma Adapter: Persists sessions and users to the database.
+ * - Credentials Provider: Handles email/password authentication.
+ * - Callbacks: Manages session and JWT token enhancements (RBAC).
+ * - Events: Logs specific actions like sign-in.
+ */
 export const { handlers, auth, signIn, signOut } = NextAuth({
     ...authConfig,
     adapter: PrismaAdapter(prisma),
     session: { strategy: "jwt" },
     providers: [
         Credentials({
+            /**
+             * Authorizes a user based on email and password.
+             * Verifies credentials against the database and checks for password validity used bcrypt.
+             */
             async authorize(credentials) {
                 const parsedCredentials = z
                     .object({ email: z.string().email(), password: z.string().min(6) })
@@ -40,6 +53,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         }),
     ],
     callbacks: {
+        /**
+         * Session Callback
+         * Populates the session object with additional user details (role, permissions)
+         * from the JWT token.
+         */
         async session({ token, session }) {
             if (token.sub && session.user) {
                 session.user.id = token.sub;
@@ -48,6 +66,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             }
             return session;
         },
+        /**
+         * JWT Callback
+         * Called whenever a JSON Web Token is created (i.e. at sign in) or updated.
+         * Fetches user role and permissions from the database and attaches them to the token.
+         */
         async jwt({ token }) {
             if (!token.sub) return token;
 
@@ -78,6 +101,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         }
     },
     events: {
+        /**
+         * SignIn Event
+         * Triggered on successful sign-in. Used here to log login activities.
+         */
         async signIn({ user }) {
             try {
                 if (user.id) {

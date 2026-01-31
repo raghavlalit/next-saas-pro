@@ -7,11 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Enum representing the status of a user's account
 enum UserStatus {
   ACTIVE
   INACTIVE
 }
 
+// Main User model for authentication and application profile
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -39,6 +41,7 @@ model User {
   loginLogs     LoginLog[]
 }
 
+// Log of user login activities for security auditing
 model LoginLog {
   id        String   @id @default(cuid())
   userId    String   @map("user_id")
@@ -51,6 +54,7 @@ model LoginLog {
   @@map("login_logs")
 }
 
+// Role-Based Access Control (RBAC) Role definition
 model Role {
   id            String           @id @default(cuid())
   name          String           @unique
@@ -66,6 +70,7 @@ model Role {
   @@map("roles")
 }
 
+// Specific permission that can be assigned to a Role
 model Permission {
   id          String           @id @default(cuid())
   module      String
@@ -94,6 +99,7 @@ model RolePermission {
 }
 
 
+// NextAuth.js Account model for OAuth providers
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -153,6 +159,7 @@ enum InvoiceStatus {
   CANCELLED
 }
 
+// Client model representing a customer or organization managed in the SaaS
 model Client {
   id              String       @id @default(cuid())
   clientCode      String       @unique @map("client_code")
@@ -184,6 +191,7 @@ model Client {
   @@map("clients")
 }
 
+// Invoice model for billing and payments
 model Invoice {
   id                    String        @id @default(cuid())
   invoiceNumber         String        @unique @map("invoice_number")

@@ -13,11 +13,26 @@ interface AdminDashboardData {
     totalInvoices: number;
     totalRevenue: number;
     pendingRevenue: number;
+    /** Array of recent invoices to display in the table */
     recentInvoices: any[];
+    /** Data for the revenue trend chart */
     revenueData: { name: string; amount: number }[];
+    /** Data for the invoice status distribution chart */
     statusData: { name: string; value: number; color: string }[];
 }
 
+/**
+ * AdminDashboard Component
+ * 
+ * Displays key metrics and charts for the SaaS administrator.
+ * Includes:
+ * - Revenue Trends (Area Chart)
+ * - Invoice Status Distribution (Donut Chart)
+ * - Quick Stats Cards (Total Users, Revenue, etc.)
+ * - Recent Invoices Table
+ * 
+ * @param data - The dashboard data fetched from the server.
+ */
 export function AdminDashboard({ data }: { data: AdminDashboardData }) {
     const formatCurrency = (amount: number) => {
         return new Intl.NumberFormat('en-US', {

@@ -15,6 +15,17 @@ interface DashboardData {
     statusData: { name: string; value: number; color: string }[];
 }
 
+/**
+ * ClientDashboard Component
+ * 
+ * Customized dashboard for individual clients.
+ * Shows:
+ * - Total Invoices & Payment Status
+ * - Monthly Expense Trends (Bar Chart)
+ * - Invoice Status Breakdown (Donut Chart)
+ * 
+ * @param data - The client-specific dashboard data.
+ */
 export function ClientDashboard({ data }: { data: DashboardData }) {
     const formatCurrency = (amount: number) => {
         return new Intl.NumberFormat('en-US', {

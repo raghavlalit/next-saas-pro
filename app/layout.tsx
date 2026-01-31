@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/theme-provider";
 import NextAuthSessionProvider from "@/components/session-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function RootLayout({
   children,
@@ -40,6 +41,7 @@ export default function RootLayout({
           <NextAuthSessionProvider>
             {children}
             <Toaster />
+            <Analytics />
           </NextAuthSessionProvider>
         </ThemeProvider>
       </body>
