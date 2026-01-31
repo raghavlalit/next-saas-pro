@@ -37,8 +37,8 @@ export function Sidebar() {
         >
             <div className="flex h-16 items-center justify-center border-b border-gray-800">
                 <div className="flex items-center gap-2 font-bold text-xl">
-                    <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
-                        <span className="text-white">N</span>
+                    <div className="relative h-8 w-8 flex-shrink-0">
+                         <img src="/logo.jpg" alt="Invofy Logo" className="h-full w-full object-contain rounded-lg" />
                     </div>
                     {!isCollapsed && <span className="transition-opacity duration-300">Invofy</span>}
                 </div>

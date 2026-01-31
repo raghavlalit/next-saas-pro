@@ -28,7 +28,10 @@ export function Header() {
 
     return (
         <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-background px-6 dark:border-gray-800">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
+                <div className="h-8 w-8">
+                     <img src="/logo.jpg" alt="Invofy Logo" className="h-full w-full object-contain rounded-lg" />
+                </div>
                 <h2 className="text-lg font-semibold text-foreground">
                     Invofy
                 </h2>
