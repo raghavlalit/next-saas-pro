@@ -1,8 +1,8 @@
 {
-  "name": "next-saas-pro",
+  "name": "invofy",
   "version": "1.0.0",
   "description": "A premium SaaS starter kit built with Next.js, Prisma, Stripe, and Tailwind CSS.",
-  "author": "NextSaaS Pro Team",
+  "author": "Invofy Team",
   "keywords": [
     "nextjs",
     "saas",

@@ -1,8 +1,8 @@
-# NextSaaS Pro
+# Invofy
 
-![NextSaaS Pro](https://placehold.co/600x200?text=NextSaaS+Pro)
+![Invofy](./public/logo.jpg)
 
-**NextSaaS Pro** is a premium, production-ready SaaS starter kit built with **Next.js 14+**, **Tailwind CSS**, **Prisma**, and **Stripe**. It includes everything you need to launch a modern SaaS application quickly.
+**Invofy** is a premium, production-ready SaaS starter kit built with **Next.js 14+**, **Tailwind CSS**, **Prisma**, and **Stripe**. It includes everything you need to launch a modern SaaS application quickly.
 
 ## 🚀 Features
 

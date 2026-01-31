@@ -1,6 +1,6 @@
-# NextSaaS Pro - Documentation
+# Invofy - Documentation
 
-Welcome to **NextSaaS Pro**! This is a production-ready SaaS starter kit built with the modern web stack: Next.js 14+ (App Router), Tailwind CSS, Prisma, Stripe, and NextAuth.js.
+Welcome to **Invofy**! This is a production-ready SaaS starter kit built with the modern web stack: Next.js 14+ (App Router), Tailwind CSS, Prisma, Stripe, and NextAuth.js.
 
 This documentation will guide you through setting up, configuring, and deploying your application.
 
@@ -164,5 +164,5 @@ For database hosting, you can use **Supabase**, **Neon**, **Railway**, or any Po
 
 ---
 
-**Thank you for choosing NextSaaS Pro!**
+**Thank you for choosing Invofy!**
 If you have any questions, please reach out to support.

@@ -40,7 +40,7 @@ export function Sidebar() {
                     <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center flex-shrink-0">
                         <span className="text-white">N</span>
                     </div>
-                    {!isCollapsed && <span className="transition-opacity duration-300">NextSaaS</span>}
+                    {!isCollapsed && <span className="transition-opacity duration-300">Invofy</span>}
                 </div>
             </div>
             <nav className="flex-1 space-y-1 px-2 py-4">

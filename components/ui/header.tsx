@@ -30,7 +30,7 @@ export function Header() {
         <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-background px-6 dark:border-gray-800">
             <div className="flex items-center">
                 <h2 className="text-lg font-semibold text-foreground">
-                    NextSaaS Pro
+                    Invofy
                 </h2>
             </div>
 
